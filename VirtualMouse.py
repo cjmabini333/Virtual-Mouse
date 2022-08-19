@@ -10,7 +10,7 @@ from comtypes import CLSCTX_ALL
 from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
 from google.protobuf.json_format import MessageToDict
 import screen_brightness_control as sbcontrol
-
+pyautogui.PAUSE = 0
 pyautogui.FAILSAFE = False
 mp_drawing = mp.solutions.drawing_utils
 mp_hands = mp.solutions.hands
@@ -196,7 +196,7 @@ class Controller:
     # Locate Hand to get Cursor Position
     # Stabilize cursor by Dampening
     def get_position(hand_result):
-        point = 9
+        point = 5
         position = [hand_result.landmark[point].x ,hand_result.landmark[point].y]
         sx,sy = pyautogui.size()
         x_old,y_old = pyautogui.position()
